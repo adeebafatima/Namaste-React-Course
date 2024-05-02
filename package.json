@@ -1,0 +1,23 @@
+{
+  "name": "namaste-react",
+  "version": "1.0.0",
+  "description": "This is for learning React",
+  "main": "index.html",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adeebafatima/Namaste-React-Course.git"
+  },
+  "keywords": [
+    "learningReact",
+    "willSucceed"
+  ],
+  "author": "Adeeba",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/adeebafatima/Namaste-React-Course/issues"
+  },
+  "homepage": "https://github.com/adeebafatima/Namaste-React-Course#readme"
+}
