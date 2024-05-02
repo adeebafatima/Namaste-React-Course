@@ -1,1 +1,3 @@
-./Notes + Assisgnment
+node_modules
+.parcel-cache
+dist
