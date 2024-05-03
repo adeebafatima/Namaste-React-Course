@@ -2,11 +2,17 @@ import React from "react";
 import { render } from "react-dom";
 import ReactDOM from "react-dom/client";
 
-// JSX => Babel transpile it to React.createElement => ReactElement-JS Object =>HTML Element render
-const jsxHeading = (
-  <h1 id="heading1 " className="head">
-    Hello World JSX
-  </h1>
+//React Element
+// const heading = <h1>Hello World JSX</h1>;
+// const root = ReactDOM.createRoot(document.getElementById("root"));
+// root.render(heading);
+
+//React Component - Everything in React is a Component, Button ,Top nav ...
+
+const HeadingComponent = () => (
+  <div id="container">
+    <h1 id="heading"> Hello World Functional Component</h1>
+  </div>
 );
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(jsxHeading);
+root.render(<HeadingComponent />);
