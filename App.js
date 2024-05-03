@@ -1,17 +1,13 @@
 import React from "react";
-import { render } from "react-dom";
 import ReactDOM from "react-dom/client";
 
-//React Element
-// const heading = <h1>Hello World JSX</h1>;
-// const root = ReactDOM.createRoot(document.getElementById("root"));
-// root.render(heading);
+const Title = () => <h1>Lets Learn Functional React Component</h1>;
 
-//React Component - Everything in React is a Component, Button ,Top nav ...
-
+//Component Composition
 const HeadingComponent = () => (
   <div id="container">
-    <h1 id="heading"> Hello World Functional Component</h1>
+    <Title />
+    <h2 id="heading"> Hello World Functional Component</h2>
   </div>
 );
 const root = ReactDOM.createRoot(document.getElementById("root"));
