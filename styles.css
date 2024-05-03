@@ -1,12 +1,3 @@
-#child1 {
-  color: blueviolet;
+#toBeReplacedHeading {
+  color: red;
 }
-
-
-#child2 {
-    color: greenyellow;
-  }
-
-  #toBeReplacedHeading {
-    color: red;
-  }
