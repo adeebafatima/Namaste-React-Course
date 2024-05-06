@@ -20,9 +20,29 @@ const Header = () => (
   </div>
 );
 
+const Body = () => (
+  <div>
+    <div className="searchBar">Search Bar</div>
+    <div className="resContainer">
+      <RestaurantCard />
+    </div>
+  </div>
+);
+
+const RestaurantCard = () => (
+  // In-line CSS: In order to write in-line css pass object inside curly brackets to style attribute
+  <div className="resCard" style={{ backgroundColor: "orange" }}>
+    <div className="resImage"></div>
+    <div className="resName">
+      <h3>Zyaka Foods</h3>
+    </div>
+  </div>
+);
+
 const AppLayout = () => (
   <div className="appLayout">
     <Header />
+    <Body />
   </div>
 );
 
