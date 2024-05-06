@@ -1,3 +1,24 @@
 #toBeReplacedHeading {
   color: red;
 }
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid black;
+}
+
+.logo {
+  width: 100px;
+}
+
+.navItems ul {
+  display: flex;
+  list-style-type: none;
+  font-size: 24px;
+}
+
+.navItems ul li {
+  padding: 10px;
+  margin: 10px;
+}
