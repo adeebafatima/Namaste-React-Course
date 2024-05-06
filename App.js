@@ -24,24 +24,17 @@ const Body = () => (
   <div>
     <div className="searchBar">Search Bar</div>
     <div className="resContainer">
-      <RestaurantCard />
-      <RestaurantCard />
-      <RestaurantCard />
-      <RestaurantCard />
-      <RestaurantCard />
-      <RestaurantCard />
-      <RestaurantCard />
-      <RestaurantCard />
-      <RestaurantCard />
-      <RestaurantCard />
-      <RestaurantCard />
-      <RestaurantCard />
+      {/* React will take all these properties(resName, cusine) (props) and it will wrap it inside an object and it will pass it to the component as props */}
+      <RestaurantCard resName="Zyaka International" cuisine="Muglai" />
+      <RestaurantCard resName="Megna Foods" cuisine="North Indian" />
+      <RestaurantCard resName="Golappa" cuisine="Chats" />
+      <RestaurantCard resName="Fantastic Ice Cream" cuisine="Ice cream" />
+      <RestaurantCard resName="Zukuba Foods" cuisine="Italian" />
     </div>
   </div>
 );
 
-const RestaurantCard = () => (
-  // In-line CSS: In order to write in-line css pass object inside curly brackets to style attribute
+const RestaurantCard = (props) => (
   <div className="resCard" style={{ backgroundColor: "orange" }}>
     <img
       className="resImage"
@@ -49,8 +42,8 @@ const RestaurantCard = () => (
       src="https://home-cooks.co.uk/cdn/shop/products/chicken-biryani-by-azam-homecooks-981107.jpg"
     />
 
-    <h3>Zyaka Foods</h3>
-    <h4>Biryani, North Indian, Asian</h4>
+    <h3>{props.resName}</h3>
+    <h4>{props.cuisine}</h4>
     <h4>4.4 Stars</h4>
     <h4>38 minutes</h4>
   </div>
