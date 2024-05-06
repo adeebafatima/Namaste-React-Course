@@ -1,7 +1,8 @@
+import { useState } from "react";
+
 import RestaurantCard from "./RestaurantCard";
 
 import resList from "../config/mockData";
-import { useState } from "react";
 
 // React Hooks
 // -Normal JS Utility Functions
@@ -9,11 +10,10 @@ import { useState } from "react";
 // -useState
 // -useEffect
 
-//State Variable ->Super powerful variable . It maintains the state of your component
-
 const Body = () => {
-  // Normal JS Variable
-  let listOfRestaurants = [
+  //State Variable ->Super powerful variable . It maintains the state of your component .Super powerful - Keep UI in sync with data - RENDER - Whenever the state variable updates React re-render the component
+
+  const [listOfRestaurants, setListofRestaurants] = useState([
     {
       info: {
         id: "636723",
@@ -38,7 +38,7 @@ const Body = () => {
         },
       },
     },
-  ];
+  ]);
 
   return (
     <div>
@@ -46,10 +46,10 @@ const Body = () => {
       <button
         className="filter-btn"
         onClick={() => {
-          listOfRestaurants = listOfRestaurants.filter(
+          const filteredListOfRestaurants = listOfRestaurants.filter(
             (res) => res.info.avgRating > 4
           );
-          console.log(listOfRestaurants); //listOfRestaurants data updated but UI does change, THIS is the problem React is trying to solve -> UI Layer and Data Layer work together
+          setListofRestaurants(filteredListOfRestaurants);
         }}
       >
         Top Rated Restaurant
