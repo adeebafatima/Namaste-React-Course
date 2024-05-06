@@ -23,13 +23,27 @@
   margin: 10px;
 }
 
+.resContainer {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .searchBar {
   padding: 10px;
 }
 
-.resCard{
-  width: 200px;
-  height: 300px;
-  border: 1px solid black;
+.resCard {
+  margin: 12px;
+  padding: 10px 10px 0px 10px;
+  width: 250px;
+  height: 450px;
+}
 
+.resCard:hover {
+  border: 1px solid black;
+  cursor: pointer;
+}
+
+.resImage {
+  width: 100%;
 }
