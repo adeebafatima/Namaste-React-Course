@@ -34,7 +34,10 @@ const Body = () => (
   </div>
 );
 
-const RestaurantCard = (props) => (
+// Destructing on the fly
+const RestaurantCard = ({ resName, cuisine }) => (
+  // or Instead of destructing on the fly we can do:
+  // const {resName,cuisine} = props;
   <div className="resCard" style={{ backgroundColor: "orange" }}>
     <img
       className="resImage"
@@ -42,8 +45,8 @@ const RestaurantCard = (props) => (
       src="https://home-cooks.co.uk/cdn/shop/products/chicken-biryani-by-azam-homecooks-981107.jpg"
     />
 
-    <h3>{props.resName}</h3>
-    <h4>{props.cuisine}</h4>
+    <h3>{resName}</h3>
+    <h4>{cuisine}</h4>
     <h4>4.4 Stars</h4>
     <h4>38 minutes</h4>
   </div>
