@@ -13,32 +13,15 @@ import resList from "../config/mockData";
 const Body = () => {
   //State Variable ->Super powerful variable . It maintains the state of your component .Super powerful - Keep UI in sync with data - RENDER - Whenever the state variable updates React re-render the component
 
-  const [listOfRestaurants, setListofRestaurants] = useState([
-    {
-      info: {
-        id: "636723",
-        name: "Chinese Wok",
-        cloudinaryImageId: "e0839ff574213e6f35b3899ebf1fc597",
-        cuisines: ["Chinese", "Asian", "Tibetan", "Desserts"],
-        avgRating: 3.3,
-        sla: {
-          deliveryTime: 36,
-        },
-      },
-    },
-    {
-      info: {
-        id: "636724",
-        name: "Muglai",
-        cloudinaryImageId: "64fd45fd9f44c1737bc446e470bed666",
-        cuisines: ["North Indian", "Lucknawi"],
-        avgRating: 4.5,
-        sla: {
-          deliveryTime: 43,
-        },
-      },
-    },
-  ]);
+  // Array Destructing
+  const [listOfRestaurants, setListofRestaurants] = useState(resList);
+
+  // const arr = useState(resList);
+  // const [listOfRestaurants, setListofRestaurants] = arr;
+
+  // const arr = useState(resList);
+  // const listOfRestaurants = arr[0];
+  // const setListofRestaurants = arr[1];
 
   return (
     <div>
