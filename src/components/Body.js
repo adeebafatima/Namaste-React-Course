@@ -1,27 +1,17 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import RestaurantCard from "./RestaurantCard";
 
 import resList from "../config/mockData";
 
-// React Hooks
-// -Normal JS Utility Functions
-// -Written by Facebook Developers
-// -useState
-// -useEffect
-
 const Body = () => {
-  //State Variable ->Super powerful variable . It maintains the state of your component .Super powerful - Keep UI in sync with data - RENDER - Whenever the state variable updates React re-render the component
-
-  // Array Destructing
   const [listOfRestaurants, setListofRestaurants] = useState(resList);
 
-  // const arr = useState(resList);
-  // const [listOfRestaurants, setListofRestaurants] = arr;
+  useEffect(() => {
+    console.log("useEffect Called!");
+  }, []);
 
-  // const arr = useState(resList);
-  // const listOfRestaurants = arr[0];
-  // const setListofRestaurants = arr[1];
+  console.log("Body Rendered!");
 
   return (
     <div>
