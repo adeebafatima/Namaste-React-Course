@@ -2,16 +2,24 @@ import { useEffect, useState } from "react";
 
 import RestaurantCard from "./RestaurantCard";
 
-import resList from "../config/mockData";
+import { SWIGGY_API } from "../config/constants";
 
 const Body = () => {
-  const [listOfRestaurants, setListofRestaurants] = useState(resList);
+  const [listOfRestaurants, setListofRestaurants] = useState([]);
 
+  // Page loads -> Render UI(blank since listOfRestaurants is empty) -> API call -> Re-Render API(we set listOfRestaurants using state variable setListOfRestaurants). Since we want to call API after initial render.
   useEffect(() => {
-    console.log("useEffect Called!");
+    fetchData();
   }, []);
 
-  console.log("Body Rendered!");
+  const fetchData = async () => {
+    const promiseData = await fetch(SWIGGY_API);
+    const apiDataJson = await promiseData.json();
+    setListofRestaurants(
+      apiDataJson?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
+        ?.restaurants
+    );
+  };
 
   return (
     <div>
