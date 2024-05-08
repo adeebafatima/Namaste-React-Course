@@ -23,19 +23,33 @@
   margin: 10px;
 }
 
+.searchBar {
+  padding: 10px;
+}
+
+.shimmerContainer {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.shimmerCard {
+  margin: 12px;
+  padding: 10px 10px 0px 10px;
+  width: 250px;
+  height: 400px;
+  background-color: gainsboro;
+}
+
 .resContainer {
   display: flex;
   flex-wrap: wrap;
 }
 
-.searchBar {
-  padding: 10px;
-}
-
 .resCard {
   margin: 12px;
   padding: 10px 10px 0px 10px;
-  width: 250px
+  width: 250px;
+  background-color: orange;
 }
 
 .resCard:hover {

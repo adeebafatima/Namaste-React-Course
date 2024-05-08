@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 
+import Shimmer from "./Shimmer";
 import RestaurantCard from "./RestaurantCard";
 
 import { SWIGGY_API } from "../config/constants";
@@ -21,7 +22,10 @@ const Body = () => {
     );
   };
 
-  return (
+  // Conditional rendering
+  return listOfRestaurants.length === 0 ? (
+    <Shimmer />
+  ) : (
     <div>
       <div className="searchBar">Search Bar</div>
       <button
