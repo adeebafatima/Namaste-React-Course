@@ -15,12 +15,19 @@
 .navItems ul {
   display: flex;
   list-style-type: none;
-  font-size: 24px;
+  font-size: 21px;
 }
 
 .navItems ul li {
   padding: 10px;
   margin: 10px;
+}
+
+.login {
+  margin-right: 20px;
+  margin-top: 19px;
+  padding: 0px 10px;
+  height: 30px;
 }
 
 .searchBar {
