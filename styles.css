@@ -30,8 +30,19 @@
   height: 30px;
 }
 
+.filter {
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.search {
+  padding-right: 30px;
+}
+
 .searchBar {
   padding: 10px;
+  margin-right: 20px;
 }
 
 .shimmerContainer {
