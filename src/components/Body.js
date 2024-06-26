@@ -7,14 +7,17 @@ import { SWIGGY_API } from "../config/constants";
 
 const Body = () => {
   console.log("Body Rendered!");
-  const [listOfRestaurants, setListofRestaurants] = useState([]);
+  const [initialListOfRestaurants, setInitialListofRestaurants] = useState([]);
+  const [filteredListOfRestaurants, setFilteredListOfRestaurants] = useState(
+    []
+  );
 
   //IMP:Whenever state variable update ,react triggers a reconcillation cycle(re-renders the component)
 
-  //Whenever you change local state variable react RE-RENDER the component
+  //Whenever you change local state variable react RE-RENDER the component, means on every letter you type inside input box whole Body component re-rendered.
   const [searchText, setSearchText] = useState("");
 
-  // Page loads -> Render UI(blank since listOfRestaurants is empty) -> API call -> Re-Render API(we set listOfRestaurants using state variable setListOfRestaurants). Since we want to call API after initial render.
+  // Page loads -> Render UI(blank since initialListOfRestaurants is empty) -> API call -> Re-Render API(we set initialListOfRestaurants using state variable setListOfRestaurants). Since we want to call API after initial render.
   useEffect(() => {
     fetchData();
   }, []);
@@ -22,14 +25,19 @@ const Body = () => {
   const fetchData = async () => {
     const promiseData = await fetch(SWIGGY_API);
     const apiDataJson = await promiseData.json();
-    setListofRestaurants(
-      apiDataJson?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
+
+    setInitialListofRestaurants(
+      apiDataJson?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
+        ?.restaurants
+    );
+    setFilteredListOfRestaurants(
+      apiDataJson?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
         ?.restaurants
     );
   };
 
-  // Conditional rendering
-  return listOfRestaurants.length === 0 ? (
+  // Conditional rendering/
+  return initialListOfRestaurants.length === 0 ? (
     <Shimmer />
   ) : (
     <div className="body">
@@ -39,13 +47,18 @@ const Body = () => {
             type="text"
             className="searchBar"
             value={searchText}
+            // searchText is initially empty and its value is tied to input box, searchText is not being updated but we are trying update inputbox value so we have to
+            // write onChange and change searchText while typing, otherwise you will be unable to type in input box
             onChange={(e) => {
               setSearchText(e.target.value);
             }}
           ></input>
           <button
             onClick={() => {
-              console.log(searchText);
+              const filteredListOfRestaurants = initialListOfRestaurants.filter(
+                (res) => res.info.name.toLowerCase().includes(searchText)
+              );
+              setFilteredListOfRestaurants(filteredListOfRestaurants);
             }}
           >
             Search
@@ -54,17 +67,17 @@ const Body = () => {
         <button
           className="filter-btn"
           onClick={() => {
-            const filteredListOfRestaurants = listOfRestaurants.filter(
-              (res) => res.info.avgRating > 4
+            const filteredListOfRestaurants = initialListOfRestaurants.filter(
+              (res) => res.info.avgRating > 4.2
             );
-            setListofRestaurants(filteredListOfRestaurants);
+            setFilteredListOfRestaurants(filteredListOfRestaurants);
           }}
         >
           Top Rated Restaurant
         </button>
       </div>
       <div className="resContainer">
-        {listOfRestaurants.map((restaurant) => (
+        {filteredListOfRestaurants.map((restaurant) => (
           <RestaurantCard key={restaurant.info.id} resData={restaurant} />
         ))}
       </div>
