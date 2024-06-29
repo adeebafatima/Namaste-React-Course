@@ -7,6 +7,10 @@ import { SWIGGY_API } from "../config/constants";
 
 const Body = () => {
   console.log("Body Rendered!");
+  // useState is use to create local state variable inside functional component
+  // Good Practice
+  //  -Always write it inside functional component and on the top.
+  //  -Never create state variable inside if/else and loops - leads to inconsistency
   const [initialListOfRestaurants, setInitialListofRestaurants] = useState([]);
   const [filteredListOfRestaurants, setFilteredListOfRestaurants] = useState(
     []
