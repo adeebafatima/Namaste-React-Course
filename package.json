@@ -23,7 +23,8 @@
   "homepage": "https://github.com/adeebafatima/Namaste-React-Course#readme",
   "dependencies": {
     "react": "^18.2.0",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.24.0"
   },
   "devDependencies": {
     "parcel": "^2.12.0",
