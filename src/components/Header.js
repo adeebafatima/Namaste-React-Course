@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { LOGO_URL } from "../config/constants";
 
 const Header = () => {
@@ -19,8 +20,14 @@ const Header = () => {
       <div className="navItems">
         <ul>
           <li>Home</li>
-          <li>About</li>
-          <li>Contact Us</li>
+          <li>
+            {/* Cons: reload the whole page */}
+            <a href="/about">About</a>
+          </li>
+          <li>
+            {/* Pros: Didn't reload the whole page */}
+            <Link to="/contact">Contact Us</Link>
+          </li>
           <li>Cart</li>
           <button
             className="login"
