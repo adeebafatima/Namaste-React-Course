@@ -19,13 +19,13 @@ const Header = () => {
       </div>
       <div className="navItems">
         <ul>
-          <li>Home</li>
           <li>
-            {/* Cons: reload the whole page */}
-            <a href="/about">About</a>
+            <Link to="/">Home</Link>
           </li>
           <li>
-            {/* Pros: Didn't reload the whole page */}
+            <Link to="/contact">About</Link>
+          </li>
+          <li>
             <Link to="/contact">Contact Us</Link>
           </li>
           <li>Cart</li>
