@@ -83,3 +83,8 @@
 .resImage {
   width: 100%;
 }
+
+.userCard {
+  border: 1px solid black;
+  padding-left: 10px;
+}
