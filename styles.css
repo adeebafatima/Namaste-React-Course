@@ -75,6 +75,11 @@
   cursor: pointer;
 }
 
+.menuLink {
+  text-decoration: none;
+  color: inherit;
+}
+
 .resImage {
   width: 100%;
 }

@@ -8,3 +8,6 @@ export const SWIGGY_API =
 // https://proxy.cors.sh/ - Worked!
 // Now you are not directly calling swiggy api, you are calling cors proxy and cors proxy call swiggy api, getting the data and returing it to you.
 // corsproxy has limit 40-60 api call in a minutes
+
+export const REST_MENU_API =
+  "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=26.87560&lng=80.91150&restaurantId=";

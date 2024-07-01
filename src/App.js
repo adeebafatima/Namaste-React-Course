@@ -8,6 +8,7 @@ import Body from "./components/Body";
 import About from "./components/About";
 import Contact from "./components/Contact";
 import Error from "./components/Error";
+import RestaurantMenu from "./components/RestaurantMenu";
 
 const AppLayout = () => {
   return (
@@ -36,6 +37,11 @@ const routingConfig = createBrowserRouter([
       {
         path: "/contact",
         element: <Contact />,
+        errorElement: <Error />,
+      },
+      {
+        path: "/restaurantMenu/:resId", //resId is dynamic, you can fetch this in RestaurantMenu using useParam hook.
+        element: <RestaurantMenu />,
         errorElement: <Error />,
       },
     ],
