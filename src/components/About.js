@@ -1,22 +1,31 @@
-import User from "./User";
+import { Component } from "react";
 import UserClass from "./UserClass";
 
-const About = () => (
-  <div>
-    <h1>We are food ordering app</h1>
-    <h2>Try our food! Order quickly</h2>
+class About extends Component {
+  constructor(props) {
+    super(props);
+    console.log("Parent constructore");
+  }
 
-    {/* <User
-      name="Adeeba Functional"
-      location="Lucknow Functional"
-      handle="@adeeba Functional"
-    /> */}
-    <UserClass
-      name="Adeeba Class"
-      location="Lucknow Class"
-      handle="@adeeba Class"
-    />
-  </div>
-);
+  componentDidMount() {
+    console.log("Parent componentDidMount");
+  }
+
+  render() {
+    console.log("Parent render");
+    return (
+      <div>
+        <h1>[Class]We are food ordering app</h1>
+        <h2>[Class]Try our food! Order quickly</h2>
+
+        <UserClass
+          name="Adeeba Class"
+          location="Lucknow Class"
+          handle="@adeeba Class"
+        />
+      </div>
+    );
+  }
+}
 
 export default About;
