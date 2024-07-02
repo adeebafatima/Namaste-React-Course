@@ -1,24 +1,11 @@
-import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { REST_MENU_API } from "../config/constants";
+import useRestaurantMenu from "../hooks/useRestaurantMenu";
 import Shimmer from "./Shimmer";
 
 const RestaurantMenu = () => {
-  const [restInfo, setRestInfo] = useState([]);
-
   const { resId } = useParams();
 
-  useEffect(() => {
-    fetchRestMenu();
-  }, []);
-
-  const fetchRestMenu = async () => {
-    const data = await fetch(REST_MENU_API + resId);
-    const jsonData = await data.json();
-    console.log(jsonData);
-    //Need to update state variable because as state variable updates component re-renders and we want resturant data so this is needed.
-    setRestInfo(jsonData.data);
-  };
+  const restInfo = useRestaurantMenu(resId);
 
   if (restInfo.length === 0) return <Shimmer />;
 
