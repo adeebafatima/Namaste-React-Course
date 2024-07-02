@@ -9,22 +9,31 @@ class UserClass extends React.Component {
             location:"Dummy Location",
             login:"Dummy Handle"
         }
-    // console.log(this.props.name, "Child constructor");
-  }}
+  }
+  console.log(this.props.name, "Child constructor")
+}
 
   async componentDidMount() {
-    // console.log(this.props.name, "Child componentDidMount");
+    console.log(this.props.name, "Child componentDidMount");
     const data = await fetch("https://api.github.com/users/adeebafatima");
     const jsonData = await data.json();
-    console.log(jsonData);
+    console.log("API Data",jsonData);
     this.setState({
         userInfo:jsonData
     })
   }
 
+  componentDidUpdate(){
+    console.log("componentDidUpdate called!")
+  }
+
+  componentWillUnmount(){
+    console.log("componentWillUnmount called!")
+  }
+
   render() {
     const { name, location, login,avatar_url} = this.state.userInfo;
-    // console.log(this.props.name, "Child render");
+    console.log(this.props.name, "Child render");
     return (
       <div className="userCard">
         <h3>{name}</h3>
@@ -37,3 +46,16 @@ class UserClass extends React.Component {
 }
 
 export default UserClass;
+
+// Mounting
+//     -Constructor
+//     -Render[Dummy data]
+//     -DOM will update Dummy data
+//     -componentDidMount[API Call]
+//     -setState done! -State variable is updated which trigged rendering again
+
+// Updating
+//     -Render[API data]
+//     -DOM will update with API Data
+//     -componentDidUpdate
+
