@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+
+import useOnlineStatus from "../hooks/useOnlineStatus";
 
 import Shimmer from "./Shimmer";
 import RestaurantCard from "./RestaurantCard";
 
 import { SWIGGY_API } from "../config/constants";
-import { Link } from "react-router-dom";
 
 const Body = () => {
   console.log("Body Rendered!");
@@ -40,6 +42,8 @@ const Body = () => {
         ?.restaurants
     );
   };
+  const onlineStatus = useOnlineStatus();
+  if(!onlineStatus) return <h1>Seems like you are offline ;(</h1>
 
   // Conditional rendering/
   return initialListOfRestaurants.length === 0 ? (
