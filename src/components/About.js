@@ -1,5 +1,5 @@
 import { Component } from "react";
-import UserClass from "./UserClass";
+import User from "./User";
 
 class About extends Component {
   constructor(props) {
@@ -17,11 +17,12 @@ class About extends Component {
       <div>
         <h1>[Class]We are food ordering app</h1>
         <h2>[Class]Try our food! Order quickly</h2>
-        <UserClass
+        {/* <UserClass
           name="Adeeba"
           location="Lucknow Class"
           handle="@adeeba Class"
-        />
+        /> */}
+        <User name="Adeeba" location="Lucknow Class" handle="@adeeba Class" />
       </div>
     );
   }
