@@ -18,28 +18,28 @@ const Header = () => {
   const onlineStatus = useOnlineStatus();
 
   return (
-    <div className="header">
+    <div className="flex justify-between shadow-lg">
       <div className="logoConatiner">
-        <img className="logo" src={LOGO_URL} />
+        <img className="w-28" src={LOGO_URL} />
       </div>
-      <div className="navItems">
-        <ul>
-          <li>Online Status: {onlineStatus ? '🟢':'🔴'}</li>
-          <li>
+      <div className="flex items-center">
+        <ul className="flex">
+          <li className="pr-8">Online Status: {onlineStatus ? '🟢':'🔴'}</li>
+          <li className="pr-8">
             <Link to="/">Home</Link>
           </li>
-          <li>
+          <li className="pr-8">
             <Link to="/about">About</Link>
           </li>
-          <li>
-            <Link to="/contact">Contact Us</Link>
+          <li className="pr-8">
+            <Link to="/contact">Contact</Link>
           </li>
-          <li>
+          <li className="pr-8">
             <Link to="/grocery">Grocery</Link>
           </li>
-          <li>Cart</li>
+          <li className="pr-8">Cart</li>
           <button
-            className="login"
+            className="pr-8"
             onClick={() => {
               // onClick btnText updated but UI didn't[Refresh doesn't happened]-That's why we need useState state variable.
               // btnText = "Logout";

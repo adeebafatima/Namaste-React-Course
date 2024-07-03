@@ -50,11 +50,11 @@ const Body = () => {
     <Shimmer />
   ) : (
     <div className="body">
-      <div className="filter">
-        <div className="search">
+      <div className="flex justify-center">
+        <div className="m-4 border-solid flex items-center">
           <input
             type="text"
-            className="searchBar"
+            className="border border-black"
             value={searchText}
             // searchText is initially empty and its value is tied to input box, searchText is not being updated but we are trying update inputbox value so we have to
             // write onChange and change searchText while typing, otherwise you will be unable to type in input box
@@ -63,6 +63,7 @@ const Body = () => {
             }}
           ></input>
           <button
+          className="px-3 py-1 ml-2 bg-gray-200 rounded-md"
             onClick={() => {
               const filteredListOfRestaurants = initialListOfRestaurants.filter(
                 (res) => res.info.name.toLowerCase().includes(searchText)
@@ -74,7 +75,7 @@ const Body = () => {
           </button>
         </div>
         <button
-          className="filter-btn"
+          className="m-4 p-2 rounded-md bg-orange-400"
           onClick={() => {
             const filteredListOfRestaurants = initialListOfRestaurants.filter(
               (res) => res.info.avgRating > 4.2
@@ -85,7 +86,7 @@ const Body = () => {
           Top Rated Restaurant
         </button>
       </div>
-      <div className="resContainer">
+      <div className="flex flex-wrap">
         {filteredListOfRestaurants.map((restaurant) => (
           <Link
             key={restaurant.info.id}
