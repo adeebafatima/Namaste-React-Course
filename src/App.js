@@ -10,7 +10,7 @@ import Contact from "./components/Contact";
 import Error from "./components/Error";
 import RestaurantMenu from "./components/RestaurantMenu";
 
-//Lazy loading/Code Splitting/Chunking/Dynamic Rendering/Dynamic Bundling
+//Lazy loading/Code Splitting/Chunking/On-Demand Loading/Dynamic Bundling
 const Grocery = lazy(()=>import("./components/Grocery"))
 
 const AppLayout = () => {
