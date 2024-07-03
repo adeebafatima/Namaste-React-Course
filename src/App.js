@@ -1,4 +1,4 @@
-import React from "react";
+import React,{lazy,Suspense} from "react";
 import ReactDOM from "react-dom/client";
 
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
@@ -9,6 +9,9 @@ import About from "./components/About";
 import Contact from "./components/Contact";
 import Error from "./components/Error";
 import RestaurantMenu from "./components/RestaurantMenu";
+
+//Lazy loading/Code Splitting/Chunking/Dynamic Rendering/Dynamic Bundling
+const Grocery = lazy(()=>import("./components/Grocery"))
 
 const AppLayout = () => {
   return (
@@ -37,6 +40,12 @@ const routingConfig = createBrowserRouter([
       {
         path: "/contact",
         element: <Contact />,
+        errorElement: <Error />,
+      },
+      {
+        path: "/grocery",
+        //Why Suspense is needed? -Grocery code is loading on demand, now React throws an error because grocery code took 10 ms to come to the browser so react throw an error
+        element: <Suspense fallback={<h1>Loading.....</h1>}><Grocery /></Suspense>,
         errorElement: <Error />,
       },
       {
