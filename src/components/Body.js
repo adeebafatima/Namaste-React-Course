@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import useOnlineStatus from "../hooks/useOnlineStatus";
 
 import Shimmer from "./Shimmer";
-import RestaurantCard from "./RestaurantCard";
+import RestaurantCard, { addPromotedLabel } from "./RestaurantCard";
 
 import { SWIGGY_API } from "../config/constants";
 
@@ -18,6 +18,7 @@ const Body = () => {
   const [filteredListOfRestaurants, setFilteredListOfRestaurants] = useState(
     []
   );
+  console.log(initialListOfRestaurants);
 
   //IMP:Whenever state variable update ,react triggers a reconcillation cycle(re-renders the component)
 
@@ -43,7 +44,9 @@ const Body = () => {
     );
   };
   const onlineStatus = useOnlineStatus();
-  if(!onlineStatus) return <h1>Seems like you are offline ;(</h1>
+  if (!onlineStatus) return <h1>Seems like you are offline ;(</h1>;
+
+  const PromotedRestaurantCard = addPromotedLabel(RestaurantCard);
 
   // Conditional rendering/
   return initialListOfRestaurants.length === 0 ? (
@@ -63,7 +66,7 @@ const Body = () => {
             }}
           ></input>
           <button
-          className="px-3 py-1 ml-2 bg-gray-200 rounded-md"
+            className="px-3 py-1 ml-2 bg-gray-200 rounded-md"
             onClick={() => {
               const filteredListOfRestaurants = initialListOfRestaurants.filter(
                 (res) => res.info.name.toLowerCase().includes(searchText)
@@ -93,7 +96,11 @@ const Body = () => {
             to={"/restaurantMenu/" + restaurant.info.id}
             className="menuLink"
           >
-            <RestaurantCard resData={restaurant}/>
+            {restaurant.info.promoted ? (
+              <PromotedRestaurantCard resData={restaurant} />
+            ) : (
+              <RestaurantCard resData={restaurant} />
+            )}
           </Link>
         ))}
       </div>

@@ -19,4 +19,18 @@ const RestaurantCard = (props) => {
   );
 };
 
+// Higher Order Component - A function that takes a component(function that return some piece of JSX) and returns a component[enhanced]
+export const addPromotedLabel = (RestaurantCard) => {
+  return (props) => {
+    return (
+      <div>
+        <label className="absolute bg-gray-600 text-white ml-4 p-0.5 rounded-lg">
+          Promoted
+        </label>
+        <RestaurantCard {...props} />
+      </div>
+    );
+  };
+};
+
 export default RestaurantCard;
