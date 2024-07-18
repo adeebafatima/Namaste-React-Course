@@ -1,4 +1,4 @@
-import React,{lazy,Suspense} from "react";
+import React, { lazy, Suspense, useState, useEffect } from "react";
 import ReactDOM from "react-dom/client";
 
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
@@ -9,16 +9,31 @@ import About from "./components/About";
 import Contact from "./components/Contact";
 import Error from "./components/Error";
 import RestaurantMenu from "./components/RestaurantMenu";
+import UserContext from "./contexts/UserContext";
 
 //Lazy loading/Code Splitting/Chunking/On-Demand Loading/Dynamic Bundling
-const Grocery = lazy(()=>import("./components/Grocery"))
+const Grocery = lazy(() => import("./components/Grocery"));
 
 const AppLayout = () => {
+  const [userName, setUserName] = useState();
+
+  //Authentication
+  useEffect(() => {
+    //API call to authenticate username,password
+    const data = {
+      username: "Adeeba Fatima",
+    };
+    setUserName(data.username);
+  }, []);
+
   return (
-    <div className="appLayout">
-      <Header />
-      <Outlet />
-    </div>
+    <UserContext.Provider value={{ loggedInUser: userName }}>
+      <div className="appLayout">
+        {/* If we wrap only Header inside UserContext.Provider then change will refect only in Header. Nested .Provider also we can do*/}
+        <Header />
+        <Outlet />
+      </div>
+    </UserContext.Provider>
   );
 };
 
@@ -45,7 +60,11 @@ const routingConfig = createBrowserRouter([
       {
         path: "/grocery",
         //Why Suspense is needed? -Grocery code is loading on demand, now React throws an error because grocery code took 10 ms to come to the browser so react throw an error
-        element: <Suspense fallback={<h1>Loading.....</h1>}><Grocery /></Suspense>,
+        element: (
+          <Suspense fallback={<h1>Loading.....</h1>}>
+            <Grocery />
+          </Suspense>
+        ),
         errorElement: <Error />,
       },
       {
