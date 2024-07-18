@@ -2,22 +2,20 @@ import { useState } from "react";
 
 import ItemList from "./ItemList";
 
-const RestaurantCategory = ({ data }) => {
-  const [arrow, setArrow] = useState("⌄");
-  const [showItemList, setShowItemList] = useState(false);
+const RestaurantCategory = ({ data,showItemList ,setShowIndex}) => {
   const handleClick = () => {
-    setShowItemList(!showItemList);
-    arrow === "＾" ? setArrow("⌄") : setArrow("＾");
+    setShowIndex();
   };
   return (
-    <div className="w-6/12 bg-gray-50 m-auto p-4 my-4 shadow-lg">
-      <div className="flex justify-between cursor-pointer" onClick={handleClick}>
+    // Accordion Head
+    <div className="w-6/12 bg-gray-50 m-auto p-4 my-4 shadow-lg" onClick={handleClick}>
+      <div className="flex justify-between cursor-pointer">
         <span className="font-bold text-large">
           {data.title}({data.itemCards.length})
         </span>
-        <span>{arrow}</span>
+        <span>⌄</span>
       </div>
-
+    {/* Accordion Body */}
       {showItemList && <ItemList itemCards={data.itemCards} />}
     </div>
   );

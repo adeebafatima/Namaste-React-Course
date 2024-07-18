@@ -1,4 +1,6 @@
+import { useState } from "react";
 import { useParams } from "react-router-dom";
+
 import useRestaurantMenu from "../hooks/useRestaurantMenu";
 import Shimmer from "./Shimmer";
 import RestaurantCategory from "./RestaurantCategory";
@@ -7,6 +9,8 @@ const RestaurantMenu = () => {
   const { resId } = useParams();
 
   const restInfo = useRestaurantMenu(resId);
+
+  const [showIndex, setShowIndex] = useState(null);
 
   if (restInfo.length === 0) return <Shimmer />;
 
@@ -19,7 +23,6 @@ const RestaurantMenu = () => {
         item?.card?.card?.["@type"] ===
         "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
     );
-  console.log(categories);
 
   return (
     <div className="text-center">
@@ -28,8 +31,17 @@ const RestaurantMenu = () => {
       <p className="font-bold">
         {costForTwoMessage + "   - " + avgRating + " stars"}
       </p>
-      {categories.map((cat) => (
-        <RestaurantCategory key={cat?.card?.card?.title} data={cat?.card?.card} />
+      {categories.map((cat, index) => (
+        //RestaurantCategory is a controlled component.
+        <RestaurantCategory
+          key={cat?.card?.card?.title}
+          data={cat?.card?.card}
+          showItemList={index === showIndex && true}
+          // setShowIndex k ander function pass kr diya jo basically dusre function setShowIndex(index) ko call kr raha hai.
+          // RestaurantCategory se setShowIndex ko call kara jisne basically setShowIndex(index) ko call kara aur showIndex ko update kara
+          // toh us particular RestaurantCategory k liye itemList khul gayi
+          setShowIndex={() =>{setShowIndex(index)}}
+        />
       ))}
     </div>
   );

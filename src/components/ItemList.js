@@ -1,7 +1,7 @@
 import { CDN_URL } from "../config/constants";
 
 const ItemList = ({ itemCards }) => {
-  console.log("item.card.info.imageId}", itemCards[0].card.info.imageId);
+    
   return (
     <div>
       {itemCards.map((item) => (
