@@ -14,8 +14,10 @@ import UserContext from "./contexts/UserContext";
 //Lazy loading/Code Splitting/Chunking/On-Demand Loading/Dynamic Bundling
 const Grocery = lazy(() => import("./components/Grocery"));
 
+// Context - when we click on Grocery than we will get code for Grocery , still updated context is present.Grocery code loads and update context(fetches)
+
 const AppLayout = () => {
-  const [userName, setUserName] = useState();
+  const [userName, setUsername] = useState();
 
   //Authentication
   useEffect(() => {
@@ -23,11 +25,13 @@ const AppLayout = () => {
     const data = {
       username: "Adeeba Fatima",
     };
-    setUserName(data.username);
+    setUsername(data.username);
   }, []);
 
   return (
-    <UserContext.Provider value={{ loggedInUser: userName }}>
+    <UserContext.Provider value={{ loggedInUser: userName, setUsername }}>
+      {/*value override the intial context value*/}
+      {/*Tied UserContext with local state*/}
       <div className="appLayout">
         {/* If we wrap only Header inside UserContext.Provider then change will refect only in Header. Nested .Provider also we can do*/}
         <Header />

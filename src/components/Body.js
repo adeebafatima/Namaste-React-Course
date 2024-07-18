@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 import useOnlineStatus from "../hooks/useOnlineStatus";
@@ -7,6 +7,7 @@ import Shimmer from "./Shimmer";
 import RestaurantCard, { addPromotedLabel } from "./RestaurantCard";
 
 import { SWIGGY_API } from "../config/constants";
+import UserContext from "../contexts/UserContext";
 
 const Body = () => {
   console.log("Body Rendered!");
@@ -48,6 +49,8 @@ const Body = () => {
 
   const PromotedRestaurantCard = addPromotedLabel(RestaurantCard);
 
+  const {setUsername,loggedInUser} = useContext(UserContext);
+
   // Conditional rendering/
   return initialListOfRestaurants.length === 0 ? (
     <Shimmer />
@@ -88,6 +91,18 @@ const Body = () => {
         >
           Top Rated Restaurant
         </button>
+        {/* Everywhere in the app where we use loggedInUser , it is changing */}
+        <div>
+        <label>Username : </label>
+        <input
+            type="text"
+            className="border border-black m-4 p-2 "
+            value={loggedInUser}
+            onChange={(e) => {
+              setUsername(e.target.value);
+            }}
+          ></input>
+          </div>
       </div>
       <div className="flex flex-wrap">
         {filteredListOfRestaurants.map((restaurant) => (
