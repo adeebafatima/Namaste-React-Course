@@ -1,8 +1,9 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 import useOnlineStatus from "../hooks/useOnlineStatus";
 import { LOGO_URL } from "../config/constants";
+import UserContext from "../contexts/UserContext";
 
 const Header = () => {
   // let btnText = "Login";
@@ -16,6 +17,9 @@ const Header = () => {
   useEffect(() => console.log("useEffect called!"), []);
 
   const onlineStatus = useOnlineStatus();
+
+  //Note: You can create multiple context
+  const userData =useContext(UserContext);
 
   return (
     <div className="flex justify-between shadow-lg">
@@ -52,6 +56,7 @@ const Header = () => {
           >
             {btnText}
           </button>
+          <li className="font-bold pr-8">{userData.loggedInUser}</li>
         </ul>
       </div>
     </div>
