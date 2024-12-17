@@ -1,5 +1,5 @@
-import { configureStore } from "@reduxjs/toolkit";
+import { configureStore } from "@reduxjs/toolkit"; //@reduxjs/toolkit has things to do with redux, creating a store is a redux thing
 
-const appstore = configureStore({});
+const appStore = configureStore({});
 
-export default appstore;
+export default appStore;

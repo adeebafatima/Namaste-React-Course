@@ -10,6 +10,8 @@ import Contact from "./components/Contact";
 import Error from "./components/Error";
 import RestaurantMenu from "./components/RestaurantMenu";
 import UserContext from "./contexts/UserContext";
+import { Provider } from "react-redux"; //Prove appStore to our application - Bridge between react application and redux - its react-redux job
+import appStore from "./utils/appStore";
 
 //Lazy loading/Code Splitting/Chunking/On-Demand Loading/Dynamic Bundling
 const Grocery = lazy(() => import("./components/Grocery"));
@@ -29,7 +31,10 @@ const AppLayout = () => {
   }, []);
 
   return (
-    <UserContext.Provider value={{ loggedInUser: userName, setUsername }}>
+    <Provider store={appStore}> 
+    {/*react-redux library exports Provider with store prop */}
+    {/* If you dont want whole app to use redux do wrap root component into Provider , just wrap the component which need Redux */}
+       <UserContext.Provider value={{ loggedInUser: userName, setUsername }}>
       {/*value override the intial context value*/}
       {/*Tied UserContext with local state*/}
       <div className="appLayout">
@@ -38,6 +43,7 @@ const AppLayout = () => {
         <Outlet />
       </div>
     </UserContext.Provider>
+    </Provider>
   );
 };
 
