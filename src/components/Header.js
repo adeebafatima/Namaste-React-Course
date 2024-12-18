@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import useOnlineStatus from "../hooks/useOnlineStatus";
 import { LOGO_URL } from "../config/constants";
 import UserContext from "../contexts/UserContext";
+import { useSelector } from "react-redux";
 
 const Header = () => {
   // let btnText = "Login";
@@ -20,6 +21,10 @@ const Header = () => {
 
   //Note: You can create multiple context
   const userData =useContext(UserContext);
+
+  //Subscribing to the store using a Selector
+  const cartItems = useSelector((store)=>store.cart.items);
+  console.log(cartItems);
 
   return (
     <div className="flex justify-between shadow-lg">
@@ -41,7 +46,7 @@ const Header = () => {
           <li className="pr-8">
             <Link to="/grocery">Grocery</Link>
           </li>
-          <li className="pr-8">Cart</li>
+          <li className="pr-8 font-bold text-xl">Cart - ({cartItems.length})</li>
           <button
             className="pr-8"
             onClick={() => {
