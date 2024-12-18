@@ -3,6 +3,11 @@ import { clearCart } from "../utils/cartSlice";
 import ItemList from "./ItemList";
 
 const Cart = () => {
+  //Subscribe to only specific portion of the store like store.cart.items
+  //Performance Optimization
+  //   Less Re-Rendering: When you use useSelector to subscribe to a specific slice of the store (e.g., store.cart.items), your component only re-renders when that specific portion changes.
+  //   If you subscribed to the entire store, your component would re-render whenever any part of the store changes, even if the data your component depends on hasn't been modified.
+  //Better performance,More maintainable and readable code,Scalability for large applications,Debugging ease.
   const cartItems = useSelector((store) => store.cart.items);
   const dispatch = useDispatch();
   const handleClearCart = () => {
