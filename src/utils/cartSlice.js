@@ -5,7 +5,7 @@ const cartSlice = createSlice({
   initialState: {
     items: ["Pizza","Pasta","Noodles"],
   },
-  reducer: {
+  reducers: {
     addItem: (state, action) => {
       //Mutating data
       state.items.push(action.payload);
