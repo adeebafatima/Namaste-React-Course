@@ -9,6 +9,7 @@ import About from "./components/About";
 import Contact from "./components/Contact";
 import Error from "./components/Error";
 import RestaurantMenu from "./components/RestaurantMenu";
+import Cart from './components/Cart';
 import UserContext from "./contexts/UserContext";
 import { Provider } from "react-redux"; //Prove appStore to our application - Bridge between react application and redux - its react-redux job
 import appStore from "./utils/appStore";
@@ -80,6 +81,11 @@ const routingConfig = createBrowserRouter([
       {
         path: "/restaurantMenu/:resId", //resId is dynamic, you can fetch this in RestaurantMenu using useParam hook.
         element: <RestaurantMenu />,
+        errorElement: <Error />,
+      },
+      {
+        path: "/cart",
+        element: <Cart />,
         errorElement: <Error />,
       },
     ],
