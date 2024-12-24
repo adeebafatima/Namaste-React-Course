@@ -1,0 +1,93 @@
+{
+    "info": {
+        "id": "864626",
+        "name": "Cake",
+        "cloudinaryImageId": "RX_THUMBNAIL/IMAGES/VENDOR/2024/4/1/26f98dcb-cdee-4d87-9f2b-42cfdbdc4f5b_864626.jpg",
+        "locality": "Triveni Nagar",
+        "areaName": "Mahanagar",
+        "costForTwo": "₹500 for two",
+        "cuisines": [
+            "Bakery",
+            "Beverages",
+            "Cafe"
+        ],
+        "avgRating": 3.1,
+        "veg": true,
+        "parentId": "3862",
+        "avgRatingString": "3.1",
+        "totalRatingsString": "21",
+        "promoted": true,
+        "adTrackingId": "cid=22976705~p=1~adgrpid=22976705#ag1~mp=SWIGGY_IN~bl=FOOD~aet=RESTAURANT~aeid=864626~eid=6d39b74e-10fe-4011-a886-1c981f77a207~srvts=1735067549031~collid=147970",
+        "sla": {
+            "deliveryTime": 35,
+            "lastMileTravel": 3,
+            "serviceability": "SERVICEABLE",
+            "slaString": "35-40 mins",
+            "lastMileTravelString": "3.0 km",
+            "iconType": "ICON_TYPE_EMPTY"
+        },
+        "availability": {
+            "nextCloseTime": "2024-12-25 01:00:00",
+            "opened": true
+        },
+        "badges": {
+            "imageBadges": [
+                {
+                    "imageId": "v1695133679/badges/Pure_Veg111.png",
+                    "description": "pureveg"
+                }
+            ]
+        },
+        "isOpen": true,
+        "aggregatedDiscountInfoV2": {},
+        "type": "F",
+        "badgesV2": {
+            "entityBadges": {
+                "imageBased": {
+                    "badgeObject": [
+                        {
+                            "attributes": {
+                                "description": "pureveg",
+                                "imageId": "v1695133679/badges/Pure_Veg111.png"
+                            }
+                        }
+                    ]
+                },
+                "textBased": {},
+                "textExtendedBadges": {}
+            }
+        },
+        "orderabilityCommunication": {
+            "title": {},
+            "subTitle": {},
+            "message": {},
+            "customIcon": {}
+        },
+        "differentiatedUi": {
+            "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+            "differentiatedUiMediaDetails": {
+                "mediaType": "ADS_MEDIA_ENUM_IMAGE",
+                "lottie": {},
+                "video": {}
+            }
+        },
+        "reviewsSummary": {},
+        "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+        "restaurantOfferPresentationInfo": {},
+        "externalRatings": {
+            "aggregatedRating": {
+                "rating": "--"
+            }
+        },
+        "ratingsDisplayPreference": "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY"
+    },
+    "analytics": {
+        "context": "seo-data-d79b3ed6-7df3-47bf-a545-693a3844ab12"
+    },
+    "cta": {
+        "link": "https://www.swiggy.com/city/lucknow/cake-triveni-nagar-mahanagar-rest864626",
+        "text": "RESTAURANT_MENU",
+        "type": "WEBLINK"
+    },
+    "widgetId": "collectionV5RestaurantListWidget_byName"
+}
