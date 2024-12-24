@@ -1,7 +1,13 @@
 const Contact = () => (
   <div>
-    <h1>Contact us by calling +22222222908</h1>
-    <h2>Email us at : khana@khazana.com</h2>
+   <h1 className="font-bold m-3 p-3 text-3xl">Contact Us Page</h1>
+   <form>
+    <input type="text" placeholder="Name" className="border border-black m-2 p-2"/>
+    <input type="text" placeholder="Message" className="border border-black m-2 p-2"/>
+    <button className="border border-black m-2 p-2 rounded-lg bg-orange-300">Submit</button>
+
+
+   </form>
   </div>
 );
 
